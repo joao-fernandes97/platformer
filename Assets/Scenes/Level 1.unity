@@ -339,6 +339,8 @@ GameObject:
   - component: {fileID: 509935225}
   - component: {fileID: 509935224}
   - component: {fileID: 509935223}
+  - component: {fileID: 509935233}
+  - component: {fileID: 509935232}
   - component: {fileID: 509935221}
   - component: {fileID: 509935222}
   - component: {fileID: 509935228}
@@ -370,7 +372,7 @@ MonoBehaviour:
 
 
     Follows
-    the closest object tagged with [Player], at 150 units per second, up to a distance
+    the closest object tagged with [Player], at -150 units per second, up to a distance
     of 25 units.
 
 '
@@ -394,7 +396,7 @@ MonoBehaviour:
     comparisonValueHandler: {fileID: 0}
     comparisonVariable: {fileID: 0}
     percentageCompare: 0
-  speed: 150
+  speed: -150
   targetType: 0
   targetTag: {fileID: 11400000, guid: 15edcc3cfa00a4e2fba5f80bcf8774c8, type: 2}
   targetObject: {fileID: 0}
@@ -728,6 +730,58 @@ MonoBehaviour:
   sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   boolState: 1
+--- !u!114 &509935232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509935220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fc8a1e9dd21634a9cb00402422ec6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: 
+  description: 
+  hypertags:
+  - {fileID: 11400000, guid: 2cb176e5120514b4a992240b64beb86f, type: 2}
+--- !u!58 &509935233
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509935220}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 30}
+  serializedVersion: 2
+  m_Radius: 24
 --- !u!1 &667075069
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +843,8 @@ GameObject:
   - component: {fileID: 743703806}
   - component: {fileID: 743703805}
   - component: {fileID: 743703804}
+  - component: {fileID: 743703808}
+  - component: {fileID: 743703809}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -980,7 +1036,7 @@ MonoBehaviour:
     the ground layer mask defines what is considered solid ground.
 
     When there''s
-    no solid ground below character, the character will start falling after 0.2s,
+    no solid ground below character, the character will start falling after 0,2s,
     with a gravity scale of 5.
 
     The character''s trajectory can be modified mid-air.
@@ -1547,7 +1603,8 @@ MonoBehaviour:
   _explanation: "Swap between Foregrounds\n----------------\nIf not (ProbeIntersect(TileProbeCollider,[TileProbe])
     and When key C is pressed:\n          toggles renderer Foreground\n         
     toggles renderer Foreground (Alt)\n          toggles IsTrigger flag of collider
-    Foreground\n          toggles IsTrigger flag of collider Foreground (Alt)\n"
+    Foreground\n          toggles IsTrigger flag of collider Foreground (Alt)\n         
+    toggles object Enemy\n"
   description: Swap between Foregrounds
   enableTrigger: 1
   allowRetrigger: 1
@@ -1579,6 +1636,8 @@ MonoBehaviour:
     action: {fileID: 743703805}
   - delay: 0
     action: {fileID: 743703804}
+  - delay: 0
+    action: {fileID: 743703809}
   inputType: 1
   buttonName: 
   key: 99
@@ -1681,6 +1740,82 @@ MonoBehaviour:
   renderer: {fileID: 1739021430}
   changeType: 0
   visibility: 2
+--- !u!114 &743703808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743703784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b66a51b7fe64c4390ac471b7df316b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: "When a collision with a trigger with tags [Enemy] starts:\n         
+    toggles renderer Foreground\n          toggles renderer Foreground (Alt)\n         
+    toggles IsTrigger flag of collider Foreground\n          toggles IsTrigger flag
+    of collider Foreground (Alt)\n          toggles object Enemy\n"
+  description: 
+  enableTrigger: 1
+  allowRetrigger: 1
+  hasPreconditions: 0
+  preConditions:
+  - negate: 0
+    valueHandler: {fileID: 0}
+    variable: {fileID: 0}
+    valueType: 0
+    tag: {fileID: 0}
+    tagCountRangeEnabled: 0
+    tagCountRange: 0
+    sourceTransform: {fileID: 0}
+    rigidBody: {fileID: 0}
+    axis: 0
+    probe: {fileID: 0}
+    movementPlatformer: {fileID: 0}
+    comparison: 0
+    value: 0
+    comparisonValueHandler: {fileID: 0}
+    comparisonVariable: {fileID: 0}
+    percentageCompare: 0
+  actions:
+  - delay: 0
+    action: {fileID: 743703807}
+  - delay: 0
+    action: {fileID: 743703806}
+  - delay: 0
+    action: {fileID: 743703805}
+  - delay: 0
+    action: {fileID: 743703804}
+  - delay: 0
+    action: {fileID: 743703809}
+  isTrigger: 1
+  eventType: 0
+  tags:
+  - {fileID: 11400000, guid: 2cb176e5120514b4a992240b64beb86f, type: 2}
+--- !u!114 &743703809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743703784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c4cd7728b890f44ab45fb8ca143d36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: Toggles object Enemy
+  description: 
+  enableAction: 1
+  hasTags: 0
+  actionTags: []
+  hasConditions: 0
+  actionConditions: []
+  target: {fileID: 509935220}
+  state: 2
 --- !u!1 &784092445
 GameObject:
   m_ObjectHideFlags: 0
