@@ -6,41 +6,41 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField]
-    private float maxSpeed = 100;
+    private float maxSpeed = 50;
 
-    private SpriteRenderer sr;
+    //private SpriteRenderer sr;
+    private Rigidbody2D     rb;
+    private Animator        animator;
 
-    private Rigidbody2D rb;
-
-    private bool amISane = true;
+    //private bool amISane = true;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        MovingPlayer(amISane);
+        //MovingPlayer(amISane);
 
-        //if(Input.GetAxis("Horizontal") != 0)
-        //{
-            //sr.color = Color.green;
-        //}
-        //else
-        //{
-            //sr.color = Color.red;
-        //}
-        //mover com transform
-        //Vector3 moveVector = new Vector3(deltaX * maxSpeed * Time.deltaTime, 0, 0);
-        //transform.position = transform.position + moveVector;
+        float deltaX = Input.GetAxis("Horizontal");
+
+        Vector3 velocity = rb.velocity;
+        velocity.x = deltaX * maxSpeed;
+        rb.velocity = velocity;
+
+        //Animation
+        animator.SetFloat("AbsVelocityX", Mathf.Abs(velocity.x));
+        if(velocity.x < 0) transform.rotation = Quaternion.Euler(0, 180, 0);
+        else if(velocity.x > 0) transform.rotation = Quaternion.identity;
     }
 
-    public void MovingPlayer(bool sane)
+    /* public void MovingPlayer(bool sane)
     {
         if(sane)
         {
@@ -58,11 +58,11 @@ public class PlayerMovement : MonoBehaviour
             velocity.x = - deltaX * maxSpeed;
             rb.velocity = velocity;
         }
-    }
+    } */
 
-    public void SetSanity(bool sane)
+    /* public void SetSanity(bool sane)
     {
         amISane = sane;
-    }
+    } */
 
 }
