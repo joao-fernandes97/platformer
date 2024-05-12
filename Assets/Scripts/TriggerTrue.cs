@@ -6,6 +6,12 @@ public class TriggerTrue : MonoBehaviour
 {
 
     [SerializeField]
+    private GameObject sanityUI;
+
+    [SerializeField]
+    private float sanityAmount;
+
+    [SerializeField]
     private GameObject player;
 
     [SerializeField]
@@ -19,6 +25,9 @@ public class TriggerTrue : MonoBehaviour
         {
             Teleport teleportScript = player.GetComponent<Teleport>();
             teleportScript.TeleportPlayer(correctChoice,distance);
+
+            Sanity sanityScript = sanityUI.GetComponent<Sanity>(); 
+            sanityScript.DecreaseSanity(sanityAmount);
         }
     }
 }

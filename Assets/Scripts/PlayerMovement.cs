@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
 
     private Rigidbody2D rb;
+
+    private bool amISane = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,24 +24,45 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float deltaX = Input.GetAxis("Horizontal");
-        if(Input.GetAxis("Horizontal") != 0)
-        {
-            sr.color = Color.green;
-        }
-        else
-        {
-            sr.color = Color.red;
-        }
+
+        MovingPlayer(amISane);
+
+        //if(Input.GetAxis("Horizontal") != 0)
+        //{
+            //sr.color = Color.green;
+        //}
+        //else
+        //{
+            //sr.color = Color.red;
+        //}
         //mover com transform
         //Vector3 moveVector = new Vector3(deltaX * maxSpeed * Time.deltaTime, 0, 0);
         //transform.position = transform.position + moveVector;
+    }
 
-        Vector3 velocity = rb.velocity;
+    public void MovingPlayer(bool sane)
+    {
+        if(sane)
+        {
+            float deltaX = Input.GetAxis("Horizontal");
 
-        velocity.x = deltaX * maxSpeed;
+            Vector3 velocity = rb.velocity;
+            velocity.x = deltaX * maxSpeed;
+            rb.velocity = velocity;
+        }
+        else
+        {
+            float deltaX = Input.GetAxis("Horizontal");
 
-        rb.velocity = velocity;
+            Vector3 velocity = rb.velocity;
+            velocity.x = - deltaX * maxSpeed;
+            rb.velocity = velocity;
+        }
+    }
+
+    public void SetSanity(bool sane)
+    {
+        amISane = sane;
     }
 
 }
