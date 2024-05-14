@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         else if(velocity.x > 0) transform.rotation = Quaternion.identity;
     }
 
-    /* public void MovingPlayer(bool sane)
+    public void MovingPlayer(bool sane)
     {
         if(sane)
         {
@@ -58,11 +58,21 @@ public class PlayerMovement : MonoBehaviour
             velocity.x = - deltaX * maxSpeed;
             rb.velocity = velocity;
         }
-    } */
+    }
 
-    /* public void SetSanity(bool sane)
+    public void SetSanity(bool sane)
     {
-        amISane = sane;
-    } */
+        //amISane = sane;
+    } 
+
+    public void PlayerDied()
+    {
+        Destroy(this.gameObject);
+    }
+
+    public void SetSpeed()
+    {
+        maxSpeed = maxSpeed / 2;
+    } 
 
 }

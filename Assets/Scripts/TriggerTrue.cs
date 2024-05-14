@@ -1,4 +1,4 @@
-/* using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,8 +27,7 @@ public class TriggerTrue : MonoBehaviour
             teleportScript.TeleportPlayer(correctChoice,distance);
 
             Sanity sanityScript = sanityUI.GetComponent<Sanity>(); 
-            sanityScript.DecreaseSanity(sanityAmount);
+            sanityScript.WrongPuzzleChoice(sanityAmount);
         }
     }
-}
- */
+}*/
