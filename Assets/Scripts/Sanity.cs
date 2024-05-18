@@ -12,6 +12,9 @@ public class Sanity : MonoBehaviour
     private RectTransform sanityBar;
 
     [SerializeField]
+    private Image circleUIBar;
+
+    [SerializeField]
     private float sanity;
 
     [SerializeField]
@@ -54,8 +57,10 @@ public class Sanity : MonoBehaviour
     public void UpdateSanityBar()
     {
         float currentScale = sanity / 100f;
+        float currentFillAmount = sanity / 100f;
         
         sanityBar.localScale = new Vector3(1f,currentScale,1f);
+        circleUIBar.fillAmount = currentFillAmount;
     }
 
     public void CrawlerGrab(float amount)
