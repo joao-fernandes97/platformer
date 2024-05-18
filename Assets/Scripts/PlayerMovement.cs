@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D     rb;
     private Animator        animator;
 
-    //private bool amISane = true;
+    private bool amISane = true;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +26,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        //MovingPlayer(amISane);
+        MovingPlayer(amISane);
 
-        float deltaX = Input.GetAxis("Horizontal");
+        /*float deltaX = Input.GetAxis("Horizontal");
 
         Vector3 velocity = rb.velocity;
         velocity.x = deltaX * maxSpeed;
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         //Animation
         animator.SetFloat("AbsVelocityX", Mathf.Abs(velocity.x));
         if(velocity.x < 0) transform.rotation = Quaternion.Euler(0, 180, 0);
-        else if(velocity.x > 0) transform.rotation = Quaternion.identity;
+        else if(velocity.x > 0) transform.rotation = Quaternion.identity;*/
     }
 
     public void MovingPlayer(bool sane)
@@ -62,12 +62,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetSanity(bool sane)
     {
-        //amISane = sane;
+        amISane = sane;
     } 
 
     public void PlayerDied()
     {
-        Destroy(this.gameObject);
+        Debug.Log("Player died");
+        //Destroy(this.gameObject);
     }
 
     public void SetSpeed()

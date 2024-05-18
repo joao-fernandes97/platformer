@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,7 +19,11 @@ public class Sanity : MonoBehaviour
 
     private float breakdownChance = 50f;
 
-    private bool sanityReducedOnce = false;
+    private bool sanityReducedOnce = false; 
+
+    private bool protectionHit = false;
+
+    private bool enableEldritchWorld = false;
 
     private List<int> debuffs = new List<int>();
     
@@ -33,15 +37,18 @@ public class Sanity : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(sanity > 0.1f)
+    {   
+        UpdateSanityBar();
+        if(sanity <=0f)
         {
-            //testing if sanity goes down with rectTransform
-            //sanity = sanity - 0.1f;
-            UpdateSanityBar();
-            //PlayerMovement playerMovementSwap = player.GetComponent<PlayerMovement>();
-            //playerMovementSwap.SetSanity(true);
-        }  
+            ResolveTest();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            enableEldritchWorld = !enableEldritchWorld;
+        }
+
+        EldritchWorld(enableEldritchWorld,0.01f);
     }
 
     public void UpdateSanityBar()
@@ -53,10 +60,14 @@ public class Sanity : MonoBehaviour
 
     public void CrawlerGrab(float amount)
     {
-        sanity = sanity - amount; //10
-        if(sanity <= 0f)
+        if(!protectionHit)
         {
-            sanity = 0.2f;
+            sanity -= amount; //10
+        
+        }
+        else
+        {
+            protectionHit = false;
         }
     }
 
@@ -66,15 +77,10 @@ public class Sanity : MonoBehaviour
         {
             if(!sanityReducedOnce)
             {
-                sanity = sanity - 5;
+                sanity -= 5;
                 sanityReducedOnce = true;
             }
-            sanity = sanity - amount; //1
-            
-            if(sanity <= 0f)
-            {
-                sanity = 0.2f;
-            }
+            sanity -= amount; //1
         }
         else
         {
@@ -84,20 +90,14 @@ public class Sanity : MonoBehaviour
 
     public void WrongPuzzleChoice(float amount)
     {
-        sanity = sanity - amount; // 10?
-        if(sanity <= 0f)
-        {
-            sanity = 0.2f;
-        }
+        sanity -= amount; // 10?
+        
     }
 
     public void PuzzleHint(float amount)
     {
-        sanity = sanity - amount; // 20?
-        if(sanity <= 0f)
-        {
-            sanity = 0.2f;
-        }
+        sanity -= amount; // 20?
+        
     }
 
     public void Breakthrough(float amount)
@@ -124,6 +124,7 @@ public class Sanity : MonoBehaviour
 
         if(randomChance <= breakdownChance)
         {
+            BreakDown(50);
             breakdownChance = breakdownChance + 20f;
             int randomIndex = Random.Range(0, debuffs.Count);
             int randomOption = debuffs[randomIndex];
@@ -133,12 +134,13 @@ public class Sanity : MonoBehaviour
                 Panic();
             if(randomOption == 3)
                 BrokenWill();
+            // player can have same debuffs or we just Pop() the option?
 
         }
         else
         {
+            Breakthrough(75);
             breakdownChance = breakdownChance + 10f;
-            // protect against enemy attack or trade for puzzle hint with no sanity cost
             EpiphanyState();
         }
 
@@ -152,29 +154,40 @@ public class Sanity : MonoBehaviour
     public void Paranoia()
     {
         //The light circle around the character becomes a cone pointed ahead
+        Debug.Log("Lights changed");
     }
 
     public void Panic()
     {
+        StartCoroutine(PanicCR());
+    }
+
+    private IEnumerator PanicCR()
+    {
         //after enemy attack, SetSanity is false for 5 secs.
+        //to do this maybe a changing a bool to true at randomOption == 2
         //Animation fog or GUI
-        //Coroutine 5 secs
+        Debug.Log("swap movement");
+        yield return new WaitForSeconds(2);
         PlayerMovement playerMovementSwap = player.GetComponent<PlayerMovement>();
         playerMovementSwap.SetSanity(false);
 
-        //after 5 secs
-        //playerMovementSwap.SetSanity(true);
+        yield return new WaitForSeconds(5);
+        playerMovementSwap.SetSanity(true);
+        //End of animation fog or GUI
     }
 
     public void BrokenWill()
     {
+        Debug.Log("movement speed slow");
         PlayerMovement playerMovementSpeed = player.GetComponent<PlayerMovement>();
         playerMovementSpeed.SetSpeed(); // reduce mov.speed 50%
     }
 
     public void EpiphanyState()
     {
-        //protection variable true;
+        Debug.Log("1 hit protection");
+        protectionHit = true;
         // hint puzzle no cost of sanity
     }
-}*/
+}
