@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool amISane = true;
 
+    //private RespawnPlayer respawnPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,19 +27,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         MovingPlayer(amISane);
+        Falling();
+    }
 
-        /*float deltaX = Input.GetAxis("Horizontal");
-
-        Vector3 velocity = rb.velocity;
-        velocity.x = deltaX * maxSpeed;
-        rb.velocity = velocity;
-
-        //Animation
-        animator.SetFloat("AbsVelocityX", Mathf.Abs(velocity.x));
-        if(velocity.x < 0) transform.rotation = Quaternion.Euler(0, 180, 0);
-        else if(velocity.x > 0) transform.rotation = Quaternion.identity;*/
+    public void Falling()
+    {
+        if (transform.position.y < - 70)
+        {
+            transform.position = new Vector3(250,-15,0);
+        }
     }
 
     public void MovingPlayer(bool sane)
@@ -49,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
             Vector3 velocity = rb.velocity;
             velocity.x = deltaX * maxSpeed;
             rb.velocity = velocity;
+
+            AnimPlayer(rb.velocity);
         }
         else
         {
@@ -57,7 +58,17 @@ public class PlayerMovement : MonoBehaviour
             Vector3 velocity = rb.velocity;
             velocity.x = - deltaX * maxSpeed;
             rb.velocity = velocity;
+
+            AnimPlayer(rb.velocity);
         }
+    }
+
+    public void AnimPlayer(Vector3 velocity)
+    {
+        //warning on unity about the animator?
+        animator.SetFloat("AbsVelocityX", Mathf.Abs(velocity.x));
+        if(velocity.x < 0) transform.rotation = Quaternion.Euler(0, 180, 0);
+        else if(velocity.x > 0) transform.rotation = Quaternion.identity;
     }
 
     public void SetSanity(bool sane)
@@ -67,8 +78,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerDied()
     {
-        Debug.Log("Player died");
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
+        //Debug.Log("Player died.");
     }
 
     public void SetSpeed()

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class TriggerTrue : MonoBehaviour
 {
-
     [SerializeField]
-    private GameObject sanityUI;
+    private GameObject sanity;
 
     [SerializeField]
     private float sanityAmount;
@@ -26,8 +25,8 @@ public class TriggerTrue : MonoBehaviour
             Teleport teleportScript = player.GetComponent<Teleport>();
             teleportScript.TeleportPlayer(correctChoice,distance);
 
-            Sanity sanityScript = sanityUI.GetComponent<Sanity>(); 
-            sanityScript.WrongPuzzleChoice(sanityAmount);
+            Sanity puzzle = sanity.GetComponent<Sanity>(); 
+            puzzle.WrongPuzzleChoice(sanityAmount);
         }
     }
 }

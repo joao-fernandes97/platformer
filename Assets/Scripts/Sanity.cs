@@ -8,8 +8,8 @@ public class Sanity : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
-    [SerializeField]
-    private RectTransform sanityBar;
+    //[SerializeField]
+    //private RectTransform sanityBar;
 
     [SerializeField]
     private Image circleUIBar;
@@ -46,7 +46,7 @@ public class Sanity : MonoBehaviour
         {
             ResolveTest();
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             enableEldritchWorld = !enableEldritchWorld;
         }
@@ -56,13 +56,13 @@ public class Sanity : MonoBehaviour
 
     public void UpdateSanityBar()
     {
-        float currentScale = sanity / 100f;
-        float currentFillAmount = sanity / 100f;
+        //float currentScale = sanity / 100f;
+        float currentFillAmount = Mathf.Clamp01(sanity / 100f);
         
-        sanityBar.localScale = new Vector3(1f,currentScale,1f);
+        //sanityBar.localScale = new Vector3(1f,currentScale,1f);
         circleUIBar.fillAmount = currentFillAmount;
     }
-
+    
     public void CrawlerGrab(float amount)
     {
         if(!protectionHit)
