@@ -10,6 +10,7 @@ public class TogEnvironment : MonoBehaviour
     [SerializeField]
     private TilemapRenderer tilemapRenderer;
     public bool IsInsideGeometry { get; private set; } = false;
+    public bool IsActive => gameObject.GetComponent<TilemapRenderer>().enabled;
     
     public void ToggleEnvironment()
     {
@@ -19,7 +20,7 @@ public class TogEnvironment : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("WallCheck"))
+        if(other.CompareTag("Collision"))
         {
             IsInsideGeometry=true;
             Debug.Log("player entered geometry");
@@ -29,7 +30,7 @@ public class TogEnvironment : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("WallCheck"))
+        if(other.CompareTag("Collision"))
         {
             IsInsideGeometry=false;
             Debug.Log("player exited geometry");

@@ -277,6 +277,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: character_animation-walking1-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 20
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0fa9a4a26e597a47842ae58b377b7e6
+      internalID: 1088522752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -296,6 +317,7 @@ TextureImporter:
       character_animation-walking1-sheet_5: -45374705
       character_animation-walking1-sheet_6: 118035110
       character_animation-walking1-sheet_7: -1373859014
+      character_animation-walking1-sheet_8: 1088522752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -705,7 +705,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -790,10 +790,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showInfo: 1
   _explanation: "Swap between Foregrounds\n----------------\nIf not (ProbeIntersect(TileProbeCollider,[TileProbe])
-    and When key C is pressed:\n          toggles renderer Foreground\n         
-    toggles renderer Foreground (Alt)\n          toggles IsTrigger flag of collider
-    Foreground\n          toggles IsTrigger flag of collider Foreground (Alt)\n         
-    toggles renderer Enemy\n          toggles component Canvas (UnityEngine.Canvas)\n"
+    and When key C is pressed:\n          toggles this renderer\n          toggles
+    this renderer\n          toggles IsTrigger flag of collider [undefined]\n         
+    toggles IsTrigger flag of collider [undefined]\n          toggles this renderer\n         
+    toggles component [Undefined]\n"
   description: Swap between Foregrounds
   enableTrigger: 1
   allowRetrigger: 1
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Toggles renderer Foreground
+  _explanation: Toggles this renderer
   description: 
   enableAction: 1
   hasTags: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Toggles renderer Foreground (Alt)
+  _explanation: Toggles this renderer
   description: 
   enableAction: 1
   hasTags: 0
@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Toggles IsTrigger flag of collider Foreground
+  _explanation: Toggles IsTrigger flag of collider [undefined]
   description: 
   enableAction: 1
   hasTags: 0
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Toggles IsTrigger flag of collider Foreground (Alt)
+  _explanation: Toggles IsTrigger flag of collider [undefined]
   description: 
   enableAction: 1
   hasTags: 0
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Toggles renderer Enemy
+  _explanation: Toggles this renderer
   description: 
   enableAction: 1
   hasTags: 0
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Toggles component Canvas (UnityEngine.Canvas)
+  _explanation: Toggles component [Undefined]
   description: 
   enableAction: 1
   hasTags: 0

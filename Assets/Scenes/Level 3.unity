@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 0
   player: {fileID: 1765968007}
   distance: 170
@@ -423,7 +423,7 @@ SpriteRenderer:
   m_Size: {x: 6.4, y: 6.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &312880037
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 0
   player: {fileID: 1765968007}
   distance: 170
@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 25
   player: {fileID: 1765968007}
   distance: 170
@@ -966,7 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 0
   player: {fileID: 1765968007}
   distance: 290
@@ -12574,7 +12574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 0
   player: {fileID: 1765968007}
   distance: 170
@@ -12878,7 +12878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1765968007}
-  sanityBar: {fileID: 1100428283}
   circleUIBar: {fileID: 1693971778}
   sanity: 0
   maxSanity: 100
@@ -13074,7 +13073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 25
   player: {fileID: 1765968007}
   distance: 300
@@ -13137,16 +13136,16 @@ RectTransform:
   m_GameObject: {fileID: 1230380370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 550896661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1230380372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21616,7 +21615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 0
   player: {fileID: 1765968007}
   distance: 290
@@ -21653,11 +21652,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 550896661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1351226498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22104,16 +22103,16 @@ RectTransform:
   m_GameObject: {fileID: 1693971776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 550896661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1693971778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30815,7 +30814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 25
   player: {fileID: 1765968007}
   distance: 300
@@ -31362,7 +31361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53477c7b513cf1247aaec679eacc5df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityUI: {fileID: 1100428282}
+  sanity: {fileID: 0}
   sanityAmount: 25
   player: {fileID: 1765968007}
   distance: 170

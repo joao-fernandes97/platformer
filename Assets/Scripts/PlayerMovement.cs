@@ -6,13 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField]
-    private float maxSpeed = 50;
+    private float           maxSpeed = 50;
 
     //private SpriteRenderer sr;
     private Rigidbody2D     rb;
     private Animator        animator;
 
-    private bool amISane = true;
+    private bool            amISane = true;
+    private bool            canMove = true;
 
     //private RespawnPlayer respawnPlayer;
 
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovingPlayer(amISane);
+        if(canMove)MovingPlayer(amISane);
         Falling();
     }
 
@@ -78,18 +79,31 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerDied()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
         //Debug.Log("Player died.");
     }
 
     public void SetSpeed()
     {
-        maxSpeed = maxSpeed / 2;
+        maxSpeed /= 2;
     } 
 
     public void ResetMVSpeed()
     {
         maxSpeed = 50;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
+        Vector3 velocity = rb.velocity;
+        velocity.x = 0;
+        rb.velocity = velocity;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
     }
 
 }

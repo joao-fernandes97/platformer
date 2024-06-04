@@ -6,11 +6,12 @@ using UnityEngine.Tilemaps;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject real;
+    private GameObject      real;
     [SerializeField]
-    private GameObject eldritch;
-    private TogEnvironment realToggle;
-    private TogEnvironment eldritchToggle;
+    private GameObject      eldritch;
+    private TogEnvironment  realToggle;
+    private TogEnvironment  eldritchToggle;
+    private bool            canSwitch=true;
     
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,24 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !realToggle.IsInsideGeometry && !eldritchToggle.IsInsideGeometry) 
+        if(Input.GetKeyDown(KeyCode.Space) && canSwitch) 
+        {
+            ToggleEnvironment();
+        }
+        
+    }
+
+    public void ToggleEnvironment()
+    {
+        if(!realToggle.IsInsideGeometry && !eldritchToggle.IsInsideGeometry)
         {
             realToggle.ToggleEnvironment();
             eldritchToggle.ToggleEnvironment();
         }
+    }
 
-
+    public void SetCanSwitch(bool canSwitch)
+    {
+        this.canSwitch = canSwitch;
     }
 }
