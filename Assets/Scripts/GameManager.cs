@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public string nomeDoMenuInicial;
 
     public string nomeDaProximaFase;
+    public string firstLevel;
 
     public float timeToLoadScene;
     public float timeToLoadNewScene;
@@ -69,13 +70,24 @@ public class GameManager : MonoBehaviour
     public void NextSceneCR()
     {
         if(KeyCounter == 1)
-            StartCoroutine(NextScene());
+            StartCoroutine(NextScene());   
     }
 
     private IEnumerator NextScene()
     {
         yield return new WaitForSeconds(timeToLoadNewScene);
         SceneManager.LoadScene(nomeDaProximaFase);
+    }
+
+    public void FirstLevelCR()
+    {
+        StartCoroutine(FirstScene());
+    }
+
+    private IEnumerator FirstScene()
+    {
+        yield return new WaitForSeconds(timeToLoadNewScene);
+        SceneManager.LoadScene(firstLevel);
     }
 
     public void IncreaseKeyCounter()

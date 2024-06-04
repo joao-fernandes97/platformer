@@ -87,4 +87,9 @@ public class PlayerMovement : MonoBehaviour
         maxSpeed = maxSpeed / 2;
     } 
 
+    public void ResetMVSpeed()
+    {
+        maxSpeed = 50;
+    }
+
 }

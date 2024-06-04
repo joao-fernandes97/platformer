@@ -200,4 +200,14 @@ public class Sanity : MonoBehaviour
         protectionHit = true;
         // hint puzzle no cost of sanity
     }
+
+    public void ResetSanity()
+    {
+        sanity = 100f;
+        breakdownChance = 50f;
+        PlayerMovement playerMovementSpeed = player.GetComponent<PlayerMovement>();
+        playerMovementSpeed.ResetMVSpeed(); 
+        //light
+        //Animation
+    }
 }

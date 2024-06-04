@@ -618,8 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 0}
-  gameOver: {fileID: 0}
-  sceneName: Level3.1
+  sceneName: BedRoom
 --- !u!114 &1266664033
 MonoBehaviour:
   m_ObjectHideFlags: 0
