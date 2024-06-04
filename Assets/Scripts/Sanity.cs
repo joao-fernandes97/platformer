@@ -51,7 +51,7 @@ public class Sanity : MonoBehaviour
             enableEldritchWorld = !enableEldritchWorld;
         }
 
-        EldritchWorld(enableEldritchWorld,0.01f);
+        EldritchWorld(enableEldritchWorld,0.02f);
     }
 
     public void UpdateSanityBar()
@@ -153,6 +153,11 @@ public class Sanity : MonoBehaviour
         {
             PlayerMovement playerDeath = player.GetComponent<PlayerMovement>();
             playerDeath.PlayerDied();
+            
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.GameOverMenu();
+            }
         }
     }
 
