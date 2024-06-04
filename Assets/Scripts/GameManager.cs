@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public float timeToLoadScene;
     public float timeToLoadNewScene;
 
+    public int KeyCounter { get; private set; } = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -66,12 +68,19 @@ public class GameManager : MonoBehaviour
 
     public void NextSceneCR()
     {
-        StartCoroutine(NextScene());
+        if(KeyCounter == 1)
+            StartCoroutine(NextScene());
     }
 
     private IEnumerator NextScene()
     {
         yield return new WaitForSeconds(timeToLoadNewScene);
         SceneManager.LoadScene(nomeDaProximaFase);
+    }
+
+    public void IncreaseKeyCounter()
+    {
+        KeyCounter = 0;
+        KeyCounter ++;
     }
 }
