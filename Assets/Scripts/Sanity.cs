@@ -161,6 +161,7 @@ public class Sanity : MonoBehaviour
             PlayerMovement playerDeath = player.GetComponent<PlayerMovement>();
             playerDeath.PlayerDied();
             
+            
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.GameOverMenu();

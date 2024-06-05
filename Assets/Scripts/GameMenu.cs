@@ -38,6 +38,7 @@ public class GameMenu : MonoBehaviour
 
     private IEnumerator ShowBlackScreen()
     {
+        blackScreen.SetActive(true);
         transitionAnim.SetTrigger("start");
         yield return new WaitForSeconds(2.0f);
         blackScreen.SetActive(false);

@@ -34106,6 +34106,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5612652828632455510, guid: 77c9519114ef32a4680f573e95aa06b0, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011575710880682766, guid: 77c9519114ef32a4680f573e95aa06b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7715661499217775157, guid: 77c9519114ef32a4680f573e95aa06b0, type: 3}
       propertyPath: m_Camera
       value: 
