@@ -5,13 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
-    public GameObject mainMenu;
+    //public GameObject mainMenu;
 
     public string sceneName;
 
-    public void CarregarJogo()
+    public Animator transitionAnim;
+
+    public GameObject blackScreen;
+
+    void Start()
     {
+        ShowBlackScreenCR();
+    }
+
+    public void LoadGame()
+    {
+        blackScreen.SetActive(true);
+        StartCoroutine(LoadScene());
+    }
+
+    private IEnumerator LoadScene()
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ShowBlackScreenCR()
+    {
+        StartCoroutine(ShowBlackScreen());
+    }
+
+    private IEnumerator ShowBlackScreen()
+    {
+        transitionAnim.SetTrigger("start");
+        yield return new WaitForSeconds(2.0f);
+        blackScreen.SetActive(false);
     }
 
     /*public void AtivarPainelDoMenuInicial()
@@ -25,7 +54,7 @@ public class GameMenu : MonoBehaviour
         //painelDaTelaDeCreditos.SetActive(true);
     }*/
 
-    public void SairDoJogo()
+    public void LeaveGame()
     {
         Application.Quit();
     }
