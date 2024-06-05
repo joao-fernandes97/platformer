@@ -57,10 +57,17 @@ public class Sanity : MonoBehaviour
     public void UpdateSanityBar()
     {
         //float currentScale = sanity / 100f;
-        float currentFillAmount = Mathf.Clamp01(sanity / 100f);
+        float currentFillAmount = ScaleValue(sanity, 0f, 100f, 0.3f, 1f);
         
         //sanityBar.localScale = new Vector3(1f,currentScale,1f);
         circleUIBar.fillAmount = currentFillAmount;
+    }
+
+    private float ScaleValue(float originalValue, float minV, float maxV, float minT, float maxT)
+    {
+        float proportion = (originalValue-minV)/(maxV-minV);
+
+        return proportion * (maxT-minT) + minT;
     }
     
     public void CrawlerGrab(float amount)

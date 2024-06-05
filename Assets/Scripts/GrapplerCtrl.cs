@@ -67,7 +67,7 @@ public class GrapplerCtrl : MonoBehaviour
             isChasing = false;
         distance = Vector3.Distance(transform.position, target.position);
         //Debug.Log(transform.position.x + " : " + target.position.x);
-        //Debug.Log("distance:" + distance);
+        Debug.Log("distance:" + distance);
     }
 
     private void AlternateState()
