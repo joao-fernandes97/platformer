@@ -29,16 +29,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if(canMove)MovingPlayer(amISane);
-        Falling();
+        //Falling();
     }
 
-    public void Falling()
+    /* public void Falling()
     {
         if (transform.position.y < - 70)
         {
             transform.position = new Vector3(250,-15,0);
         }
-    }
+    } */
 
     public void MovingPlayer(bool sane)
     {
