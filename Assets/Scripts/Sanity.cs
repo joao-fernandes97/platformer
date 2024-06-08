@@ -32,7 +32,8 @@ public class Sanity : MonoBehaviour
     
     void Start()
     {
-        sanity = maxSanity;
+        //sanity = maxSanity;
+        sanity = SanityManager.Instance.sanityInstance;
         debuffs.Add(1);
         debuffs.Add(2);
         debuffs.Add(3);
@@ -90,9 +91,11 @@ public class Sanity : MonoBehaviour
             if(!sanityReducedOnce)
             {
                 sanity -= 5;
+                SanityManager.Instance.sanityInstance -= 5;
                 sanityReducedOnce = true;
             }
             sanity -= amount; //1
+            SanityManager.Instance.sanityInstance -= amount;
         }
         else
         {
@@ -103,32 +106,35 @@ public class Sanity : MonoBehaviour
     public void WrongPuzzleChoice(float amount)
     {
         sanity -= amount; // 10?
+        SanityManager.Instance.sanityInstance -= amount;
         
     }
 
     public void PuzzleHint(float amount)
     {
         sanity -= amount; // 20?
-        
+        SanityManager.Instance.sanityInstance -= amount;      
     }
 
     public void Breakthrough(float amount)
     {
         sanity = amount; //+ 75 or to +25 (-50/0/50)
+        SanityManager.Instance.sanityInstance = amount;
     }
 
     public void BreakDown(float amount)
     {
         sanity = amount; // +50 or to 0 (-50/0/50)
+        SanityManager.Instance.sanityInstance = amount;
     }
 
-    public void RestingBed(float amount)
+    /*public void RestingBed(float amount)
     {
         if(sanity <= 60f)
         {
             sanity = amount; //60 or +10 (-50-0-50)
         }
-    }
+    }*/
 
     public void ResolveTest()
     {
@@ -211,7 +217,8 @@ public class Sanity : MonoBehaviour
 
     public void ResetSanity()
     {
-        sanity = 100f;
+        sanity = maxSanity;
+        SanityManager.Instance.sanityInstance = maxSanity;
         breakdownChance = 50f;
         PlayerMovement playerMovementSpeed = player.GetComponent<PlayerMovement>();
         playerMovementSpeed.ResetMVSpeed(); 
