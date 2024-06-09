@@ -12,6 +12,16 @@ public class Sanity : MonoBehaviour
     private TilemapRenderer     eldritchMap;
     [SerializeField]
     private Image               circleUIBar;
+
+    public GameObject paranoiaIcon;
+    public GameObject confusionIcon;
+    public GameObject brokenwillIcon;
+
+    public AudioSource audioSource;
+    public AudioClip audioBreakdown;
+    public AudioClip audioBreakthrough;
+    public AudioClip audioEnemyGrab;
+    public AudioClip audioSwapWorld;
     [SerializeField]
     private float               sanity;
     [SerializeField]
@@ -85,6 +95,8 @@ public class Sanity : MonoBehaviour
                 sanity -= 5;
                 SanityManager.Instance.sanityInstance -= 5;
                 sanityReducedOnce = true;
+                audioSource.clip = audioSwapWorld;
+                audioSource.Play();
             }
             sanity -= amount; //1
             SanityManager.Instance.sanityInstance -= amount;
@@ -138,6 +150,8 @@ public class Sanity : MonoBehaviour
             breakdownChance = breakdownChance + 20f;
             int randomIndex = Random.Range(0, debuffs.Count);
             int randomOption = debuffs[randomIndex];
+            audioSource.clip = audioBreakdown;
+            audioSource.Play();
             if(randomOption == 1)
                 Paranoia();
             if(randomOption == 2)
@@ -151,6 +165,8 @@ public class Sanity : MonoBehaviour
         {
             Breakthrough(75);
             breakdownChance = breakdownChance + 10f;
+            audioSource.clip = audioBreakthrough;
+            audioSource.Play();
             EpiphanyState();
         }
 
@@ -171,6 +187,7 @@ public class Sanity : MonoBehaviour
     {
         //The light circle around the character becomes a cone pointed ahead
         Debug.Log("Lights changed");
+        paranoiaIcon.SetActive(true);
     }
 
     public void Panic()
@@ -180,6 +197,7 @@ public class Sanity : MonoBehaviour
 
     private IEnumerator PanicCR()
     {
+        confusionIcon.SetActive(true);
         //after enemy attack, SetSanity is false for 5 secs.
         //to do this maybe a changing a bool to true at randomOption == 2
         //Animation fog or GUI
@@ -191,10 +209,12 @@ public class Sanity : MonoBehaviour
         yield return new WaitForSeconds(5);
         playerMovementSwap.SetSanity(true);
         //End of animation fog or GUI
+        confusionIcon.SetActive(false);
     }
 
     public void BrokenWill()
     {
+        brokenwillIcon.SetActive(true);
         Debug.Log("movement speed slow");
         PlayerMovement playerMovementSpeed = player.GetComponent<PlayerMovement>();
         playerMovementSpeed.SetSpeed(); // reduce mov.speed 50%
