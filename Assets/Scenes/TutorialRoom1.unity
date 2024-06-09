@@ -1193,6 +1193,10 @@ PrefabInstance:
       propertyPath: circleUIBar
       value: 
       objectReference: {fileID: 473378766}
+    - target: {fileID: 5953340848638624378, guid: 8c9f24e4591557c40bbf9a4a574cf5c6, type: 3}
+      propertyPath: eldritchMap
+      value: 
+      objectReference: {fileID: 887666978}
     - target: {fileID: 7330211013953844710, guid: 8c9f24e4591557c40bbf9a4a574cf5c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

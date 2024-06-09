@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 1266664033}
   - component: {fileID: 1266664032}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2343c809e00ce49a6ffea20fc86c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: TutorialRoom1
+  sceneName: TutorialRoomSwap
   transitionAnim: {fileID: 416656619}
   blackScreen: {fileID: 416656617}
 --- !u!114 &1266664033

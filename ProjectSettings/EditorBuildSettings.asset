@@ -41,4 +41,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialRoom1.unity
     guid: 037dd78feaab96144993cd876ab12997
+  - enabled: 1
+    path: Assets/Scenes/TutorialRoomMonster.unity
+    guid: 9db7a008a413ee045bcecc6e06625134
+  - enabled: 1
+    path: Assets/Scenes/TutorialRoomSwap.unity
+    guid: bb8a5da201af5c745ae2496803b8153e
+  - enabled: 1
+    path: Assets/Scenes/BedRoomTutorial.unity
+    guid: 6900747293594594198bbe63b1a360c5
+  - enabled: 1
+    path: Assets/Scenes/BedRoomTutorial 2.unity
+    guid: 864453dc43518b94d954b13bda9b7701
   m_configObjects: {}

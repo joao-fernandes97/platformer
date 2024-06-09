@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public string nomeDaProximaFase;
     public string firstLevel;
     public string secondLevel;
+    public string secondTutorial;
 
     public float timeToLoadScene;
     public float timeToLoadNewScene;
@@ -100,6 +101,17 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToLoadNewScene);
         SceneManager.LoadScene(secondLevel);
+    }
+
+    public void SecondTutorialCR()
+    {
+        StartCoroutine(SecondTutorial());
+    }
+
+    private IEnumerator SecondTutorial()
+    {
+        yield return new WaitForSeconds(timeToLoadNewScene);
+        SceneManager.LoadScene(secondTutorial);
     }
 
     public void IncreaseKeyCounter()

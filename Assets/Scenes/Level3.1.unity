@@ -3477,7 +3477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbb333c157cf554fbb622007a4d483c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bedRoomSceneName: BedRoom2
+  bedRoomSceneName: ThankingMenu
   transitionAnim: {fileID: 1856478480740630350}
   blackScreen: {fileID: 1856478480740630349}
 --- !u!1 &740408381
@@ -3609,6 +3609,7 @@ MonoBehaviour:
   nomeDaProximaFase: ThankingMenu
   firstLevel: Level3.1
   secondLevel: Test 3
+  secondTutorial: 
   timeToLoadScene: 2
   timeToLoadNewScene: 1
 --- !u!4 &831744809
