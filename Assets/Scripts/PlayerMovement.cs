@@ -32,16 +32,16 @@ public class PlayerMovement : MonoBehaviour
     {
         CurrentSpeed = Mathf.Abs(rb.velocity.x);
         if(canMove)MovingPlayer(amISane);
-        //Falling();
+        Falling();
     }
 
-    /* public void Falling()
+     public void Falling()
     {
-        if (transform.position.y < - 70)
+        if (transform.position.y < - 100)
         {
             transform.position = new Vector3(250,-15,0);
         }
-    } */
+    } 
 
     public void MovingPlayer(bool sane)
     {
