@@ -48,6 +48,16 @@ public class Player : MonoBehaviour
 
     }
 
+    public void BtAnimStart()
+    {
+        animator.SetTrigger("PlayerBreakthrough");
+    }
+
+    public void BdAnimStart()
+    {
+        animator.SetTrigger("PlayerBreakdown");
+    }
+
     private IEnumerator SwitchCooldown(int seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -58,6 +68,8 @@ public class Player : MonoBehaviour
     {
         gameController.SetCanSwitch(true);
     }
+
+     
 
     
 

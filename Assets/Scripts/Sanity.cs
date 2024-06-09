@@ -33,6 +33,7 @@ public class Sanity : MonoBehaviour
     private bool                enableEldritchWorld = false;
 
     private List<int>           debuffs = new List<int>();
+    private Player              playerCtrl;
     
     void Start()
     {
@@ -41,6 +42,8 @@ public class Sanity : MonoBehaviour
         debuffs.Add(1);
         debuffs.Add(2);
         debuffs.Add(3);
+
+        playerCtrl = player.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -122,12 +125,14 @@ public class Sanity : MonoBehaviour
 
     public void Breakthrough(float amount)
     {
+        playerCtrl.BtAnimStart();
         sanity = amount; //+ 75 or to +25 (-50/0/50)
         SanityManager.Instance.sanityInstance = amount;
     }
 
     public void BreakDown(float amount)
     {
+        playerCtrl.BdAnimStart();
         sanity = amount; // +50 or to 0 (-50/0/50)
         SanityManager.Instance.sanityInstance = amount;
     }

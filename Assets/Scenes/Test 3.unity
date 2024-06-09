@@ -35256,6 +35256,18 @@ PrefabInstance:
       propertyPath: circleUIBar
       value: 
       objectReference: {fileID: 245085995}
+    - target: {fileID: 5953340848638624378, guid: 8c9f24e4591557c40bbf9a4a574cf5c6, type: 3}
+      propertyPath: paranoiaIcon
+      value: 
+      objectReference: {fileID: 1227297148}
+    - target: {fileID: 5953340848638624378, guid: 8c9f24e4591557c40bbf9a4a574cf5c6, type: 3}
+      propertyPath: confusionIcon
+      value: 
+      objectReference: {fileID: 1227297147}
+    - target: {fileID: 5953340848638624378, guid: 8c9f24e4591557c40bbf9a4a574cf5c6, type: 3}
+      propertyPath: brokenwillIcon
+      value: 
+      objectReference: {fileID: 1227297146}
     - target: {fileID: 7330211013953844710, guid: 8c9f24e4591557c40bbf9a4a574cf5c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -35379,6 +35391,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c9519114ef32a4680f573e95aa06b0, type: 3}
+--- !u!1 &1227297146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 579810413115486480, guid: 77c9519114ef32a4680f573e95aa06b0, type: 3}
+  m_PrefabInstance: {fileID: 1227297145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1227297147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7127389848054929432, guid: 77c9519114ef32a4680f573e95aa06b0, type: 3}
+  m_PrefabInstance: {fileID: 1227297145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1227297148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3495015114072087854, guid: 77c9519114ef32a4680f573e95aa06b0, type: 3}
+  m_PrefabInstance: {fileID: 1227297145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1708659012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3177574283802622757, guid: f42f880ef15c49d439abf9ff93df2015, type: 3}
