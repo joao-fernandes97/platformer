@@ -18,6 +18,7 @@ public class GrapplerCtrl : MonoBehaviour
     private float           distance;
     private Rigidbody2D     rb;
     private SpriteRenderer  sr;
+    private Animator        animator;
     private bool            isActive = true;
     private bool            isChasing = false;
 
@@ -26,6 +27,7 @@ public class GrapplerCtrl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         distance = Vector3.Distance(transform.position, target.position);
@@ -48,10 +50,10 @@ public class GrapplerCtrl : MonoBehaviour
 
     private void Chase()
     {
+        Vector3 velocity = rb.velocity;
         if(distance < aggroRange && distance > 10)
         {
             isChasing=true;
-            Vector3 velocity = rb.velocity;
             if(target.position.x < transform.position.x)
             {                    
                 velocity.x = -maxSpeed;
@@ -62,9 +64,12 @@ public class GrapplerCtrl : MonoBehaviour
                 velocity.x = maxSpeed;
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
+            
             rb.velocity = velocity;
         }else
             isChasing = false;
+
+        animator.SetFloat("AbsVelocityX", Mathf.Abs(velocity.x));
         distance = Vector3.Distance(transform.position, target.position);
         //Debug.Log(transform.position.x + " : " + target.position.x);
         Debug.Log("distance:" + distance);
@@ -73,5 +78,6 @@ public class GrapplerCtrl : MonoBehaviour
     private void AlternateState()
     {
         if(!isChasing)isActive = !isActive;
+        animator.SetBool("isActive", isActive);
     }
 }

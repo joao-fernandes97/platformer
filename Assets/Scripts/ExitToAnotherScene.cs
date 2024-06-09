@@ -6,6 +6,8 @@ public class ExitToAnotherScene : MonoBehaviour
 {
     private bool playerInTrigger;
 
+    //TODO: Make this generic, serialize field to pass Scene Name, and one to add a required item
+    
     void Update()
     {
         if (playerInTrigger && Input.GetKeyDown(KeyCode.E))

@@ -1,34 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class Sanity : MonoBehaviour
 {
     [SerializeField]
-    private GameObject player;
-
-    //[SerializeField]
-    //private RectTransform sanityBar;
-
+    private GameObject          player;
     [SerializeField]
-    private Image circleUIBar;
-
+    private TilemapRenderer     eldritchMap;
     [SerializeField]
-    private float sanity;
-
+    private Image               circleUIBar;
     [SerializeField]
-    private float maxSanity = 100f;
+    private float               sanity;
+    [SerializeField]
+    private float               maxSanity = 100f;
 
-    private float breakdownChance = 50f;
+    private float               breakdownChance = 50f;
+    private bool                sanityReducedOnce = false; 
+    private bool                protectionHit = false;
+    private bool                enableEldritchWorld = false;
 
-    private bool sanityReducedOnce = false; 
-
-    private bool protectionHit = false;
-
-    private bool enableEldritchWorld = false;
-
-    private List<int> debuffs = new List<int>();
+    private List<int>           debuffs = new List<int>();
     
     void Start()
     {
@@ -47,11 +41,9 @@ public class Sanity : MonoBehaviour
         {
             ResolveTest();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            enableEldritchWorld = !enableEldritchWorld;
-        }
-
+       
+        enableEldritchWorld = eldritchMap.enabled;
+        
         EldritchWorld(enableEldritchWorld,0.02f);
     }
 
