@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BedRecoverSanity : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip audioBed;
     private bool playerInTrigger;
 
     void Update()
     {
         if (playerInTrigger && Input.GetKeyDown(KeyCode.S))
         {
+            audioSource.clip = audioBed;
+            audioSource.Play();
             FindObjectOfType<Sanity>().ResetSanity();
         }
     }

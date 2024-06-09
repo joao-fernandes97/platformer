@@ -20,7 +20,6 @@ public class Sanity : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip audioBreakdown;
     public AudioClip audioBreakthrough;
-    public AudioClip audioEnemyGrab;
     public AudioClip audioSwapWorld;
     [SerializeField]
     private float               sanity;

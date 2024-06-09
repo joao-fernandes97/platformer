@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField]
-    private float           maxSpeed = 50;
+    private float           maxSpeed = 100;
 
     //private SpriteRenderer sr;
     private Rigidbody2D     rb;
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetMVSpeed()
     {
-        maxSpeed = 50;
+        maxSpeed = 100;
     }
 
     public void DisableMovement()
