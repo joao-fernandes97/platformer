@@ -4,13 +4,27 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip audioKey;
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            //Sound.Play();
+            audioSource.clip = audioKey;
+            audioSource.Play();
             FindObjectOfType<GameManager>().IncreaseKeyCounter();
-            Destroy(this.gameObject);
+            DestroyKeyCR();
         }
+    }
+
+    public void DestroyKeyCR()
+    {
+        StartCoroutine(DestroyKey());
+    }
+
+    private IEnumerator DestroyKey()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(this.gameObject);
     }
 }
