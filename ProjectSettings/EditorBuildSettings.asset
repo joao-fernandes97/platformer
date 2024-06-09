@@ -20,13 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 5cb7bceafa389584eac5b5c7086bbc02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BedRoom.unity
     guid: 8473c2d49a7efba41ae62f43d37762ec
   - enabled: 1
     path: Assets/Scenes/Level3.1.unity
     guid: d5abeb62c1bc4fa4f91e84033fac2dc5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BedRoom2.unity
     guid: 95468491e5001494ab7af65e5b8054f8
   - enabled: 1
@@ -35,10 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThankingMenu.unity
     guid: 5d7a674ecd614ce4a9e9db820fa7ac19
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test 3.unity
     guid: 5dfe8173555ac6f4183313effca3ad87
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TutorialRoom1.unity
     guid: 037dd78feaab96144993cd876ab12997
   - enabled: 1

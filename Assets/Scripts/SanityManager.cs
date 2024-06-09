@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SanityManager : MonoBehaviour
 {
-    public static SanityManager Instance {get; private set;}
+    private static SanityManager _instance = null;
+    public static SanityManager Instance => _instance;
+
     public float sanityInstance = 100f;
     private void Awake()
     {
-        if (Instance != null)
-            Destroy(Instance.gameObject);
-        else
-            Instance = this;
+        if (_instance == null)
+        {
+            _instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
     }
 
     private void Start()

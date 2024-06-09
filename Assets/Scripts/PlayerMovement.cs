@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private bool            amISane = true;
     private bool            canMove = true;
 
+    public float            CurrentSpeed {get; private set;}
+
     //private RespawnPlayer respawnPlayer;
 
     // Start is called before the first frame update
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CurrentSpeed = Mathf.Abs(rb.velocity.x);
         if(canMove)MovingPlayer(amISane);
         //Falling();
     }

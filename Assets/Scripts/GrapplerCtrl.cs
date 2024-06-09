@@ -15,6 +15,8 @@ public class GrapplerCtrl : MonoBehaviour
     private Collider2D      grabDetection;
 
     private Transform       target;
+    private PlayerMovement  tMovement;
+    private float           tSpeed;
     private float           distance;
     private Rigidbody2D     rb;
     private SpriteRenderer  sr;
@@ -30,6 +32,7 @@ public class GrapplerCtrl : MonoBehaviour
         animator = GetComponent<Animator>();
 
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        tMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         distance = Vector3.Distance(transform.position, target.position);
 
         InvokeRepeating(nameof(AlternateState), 5, 5);
@@ -38,10 +41,11 @@ public class GrapplerCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grabDetection.enabled = activeLayer.enabled;
-        sr.enabled = grabDetection.enabled;
-        
-        if(target != null && activeLayer.enabled && isActive)
+        grabDetection.enabled = activeLayer.enabled && isActive;
+        sr.enabled = activeLayer.enabled;
+        tSpeed = tMovement.CurrentSpeed;
+
+        if(target != null && activeLayer.enabled && isActive && tSpeed>0)
         {
             //chase player
             Chase();
@@ -73,6 +77,14 @@ public class GrapplerCtrl : MonoBehaviour
         distance = Vector3.Distance(transform.position, target.position);
         //Debug.Log(transform.position.x + " : " + target.position.x);
         Debug.Log("distance:" + distance);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.CompareTag("Player"))
+        {
+            animator.SetTrigger("Attack");
+        }
     }
 
     private void AlternateState()

@@ -50,7 +50,7 @@ public class Sanity : MonoBehaviour
     public void UpdateSanityBar()
     {
         //float currentScale = sanity / 100f;
-        float currentFillAmount = ScaleValue(sanity, 0f, 100f, 0.3f, 1f);
+        float currentFillAmount = ScaleValue(sanity, 0f, 100f, 0.3f, 0.95f);
         
         //sanityBar.localScale = new Vector3(1f,currentScale,1f);
         circleUIBar.fillAmount = currentFillAmount;
