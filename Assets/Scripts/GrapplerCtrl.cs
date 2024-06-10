@@ -73,7 +73,6 @@ public class GrapplerCtrl : MonoBehaviour
         }else
             isChasing = false;
 
-        animator.SetFloat("AbsVelocityX", Mathf.Abs(velocity.x));
         distance = Vector3.Distance(transform.position, target.position);
         //Debug.Log(transform.position.x + " : " + target.position.x);
         Debug.Log("distance:" + distance);

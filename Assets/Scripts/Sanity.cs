@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -27,6 +28,7 @@ public class Sanity : MonoBehaviour
     private float               maxSanity = 100f;
 
     private float               breakdownChance = 50f;
+    public float                BreakdownChance => breakdownChance;
     private bool                sanityReducedOnce = false; 
     private bool                protectionHit = false;
     private bool                enableEldritchWorld = false;
@@ -175,10 +177,8 @@ public class Sanity : MonoBehaviour
         }
 
         if(breakdownChance >= 100f)
-        {
-            PlayerMovement playerDeath = player.GetComponent<PlayerMovement>();
-            playerDeath.PlayerDied();
-            
+        {   
+            StartCoroutine(PlayerDiedCR());
             
             if (GameManager.Instance != null)
             {
@@ -192,6 +192,10 @@ public class Sanity : MonoBehaviour
         //The light circle around the character becomes a cone pointed ahead
         Debug.Log("Lights changed");
         paranoiaIcon.SetActive(true);
+        Light2D playerLight = player.GetComponentInChildren<Light2D>();
+        playerLight.pointLightInnerAngle = 60f;
+        playerLight.pointLightOuterAngle = 180f;
+
     }
 
     public void Panic()
@@ -199,6 +203,15 @@ public class Sanity : MonoBehaviour
         StartCoroutine(PanicCR());
     }
 
+    private IEnumerator PlayerDiedCR()
+    {
+        
+        playerCtrl.DeathAnimStart();
+        yield return new WaitForSeconds(4);
+        PlayerMovement playerDeath = player.GetComponent<PlayerMovement>();
+        playerDeath.PlayerDied();
+    }
+    
     private IEnumerator PanicCR()
     {
         confusionIcon.SetActive(true);

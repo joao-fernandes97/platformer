@@ -51,11 +51,19 @@ public class Player : MonoBehaviour
     public void BtAnimStart()
     {
         animator.SetTrigger("PlayerBreakthrough");
+        movement.DisableMovement();
     }
 
     public void BdAnimStart()
     {
         animator.SetTrigger("PlayerBreakdown");
+        movement.DisableMovement();
+    }
+
+    public void DeathAnimStart()
+    {
+        animator.SetTrigger("PlayerDeath");
+        movement.DisableMovement();
     }
 
     private IEnumerator SwitchCooldown(int seconds)
