@@ -10475,7 +10475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbb333c157cf554fbb622007a4d483c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bedRoomSceneName: BedRoomTutorial 2
+  bedRoomSceneName: ThankingMenu
   transitionAnim: {fileID: 1227297147}
   blackScreen: {fileID: 1227297146}
 --- !u!61 &192124402
