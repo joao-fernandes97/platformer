@@ -2517,7 +2517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 831744809}
-  - component: {fileID: 831744808}
+  - component: {fileID: 831744810}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2525,18 +2525,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &831744808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831744807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c391f7dd5e6bda34bb7c0e218fbc3d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &831744809
 Transform:
   m_ObjectHideFlags: 0
@@ -2553,6 +2541,26 @@ Transform:
   - {fileID: 1866852054}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831744810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831744807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bd88ab916606748a51b5f105eb5bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: {fileID: 1866852050}
+  nomeDoMenuInicial: 
+  nomeDaProximaFase: 
+  firstLevel: 
+  secondLevel: 
+  secondTutorial: 
+  timeToLoadScene: 1
+  timeToLoadNewScene: 2
 --- !u!1 &887666972
 GameObject:
   m_ObjectHideFlags: 0
